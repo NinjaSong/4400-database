@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+<script type="text/javascript">
+function conditionCheck(){
+	var pass1 = document.getElementById("pw").value;
+	var pass2 = document.getElementById("cpw").value;
+	var email = document.getElementById("email").value;
+	if(email.indexOf("@gatech.edu")==-1){
+		alert("Enter a GT email address");
+		return false;
+	}
+		
+	if(pass1 == pass2){
+		return true;
+	} else {
+		alert("Both passwords don't match");
+		return false;
+	}
+}
+</script>
+</head>
+<body bgcolor="#33BEFF">
+<div id="border" style="border:1px solid #00FFFF; text-align: center;" ><br/>
+<h2>New Student Registration</h2>
+<form action="register" method="POST" onsubmit="return conditionCheck()">
+Username&emsp;<input type="text" name="username" required/><br/><br/>
+<!-- Only GT students can use this application -->
+GT Email Address&emsp;<input id="email" type="text" name="email" required/><br/><br/> 
+Password&emsp;<input type="password" name="password" id="pw" required/><br/><br/>
+Confirm Password&emsp;<input type="password" id="cpw" required/><br/><br/>
+<input type="submit" name="register" value="Create"/>
+</form>
+</div>
+</body>
+</html>
